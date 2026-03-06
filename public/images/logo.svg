@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="shoeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e94560;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff6b6b;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <circle cx="100" cy="100" r="90" fill="url(#shoeGrad)"/>
+  <g transform="translate(30, 55)">
+    <path d="M10 50 Q25 35 50 40 Q75 45 95 30 Q105 25 110 35 Q115 45 100 60 Q85 75 50 75 Q25 75 10 60 Z" 
+          fill="white" stroke="white" stroke-width="2"/>
+    <ellipse cx="30" cy="55" rx="6" ry="8" fill="#e94560"/>
+    <ellipse cx="55" cy="58" rx="6" ry="8" fill="#e94560"/>
+    <ellipse cx="80" cy="52" rx="6" ry="8" fill="#e94560"/>
+    <path d="M20 45 Q40 35 60 40 Q80 45 90 35" stroke="#e94560" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </g>
+  <text x="100" y="170" text-anchor="middle" fill="white" font-family="Poppins, Arial" font-size="18" font-weight="bold" letter-spacing="2">SHOES</text>
+</svg>
