@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/shop', [App\Http\Controllers\HomeController::class, 'shop'])->name('shop');
+    Route::get('/shoe/{shoe}', [App\Http\Controllers\HomeController::class, 'shoeDetail'])->name('shoe.detail');
 Route::get('/contact', [App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
 Route::post('/contact', [App\Http\Controllers\HomeController::class, 'contactSubmit'])->name('contact.submit');
 Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
@@ -18,7 +19,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('shoes', App\Http\Controllers\ShoeController::class)->names('shoes');
         Route::get('orders', [App\Http\Controllers\AdminOrderController::class, 'index'])->name('orders.index');
         Route::get('completed-orders', [App\Http\Controllers\AdminOrderController::class, 'completedOrders'])->name('orders.completed');
-        Route::get('orders/{id}', [App\Http\Controllers\AdminOrderController::class, 'show'])->name('orders.show');
+        Route::post('orders/{id}', [App\Http\Controllers\AdminOrderController::class, 'show'])->name('orders.show');
         Route::post('orders/{id}/status', [App\Http\Controllers\AdminOrderController::class, 'updateStatus'])->name('orders.updateStatus');
     });
 });

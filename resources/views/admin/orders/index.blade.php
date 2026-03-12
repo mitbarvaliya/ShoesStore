@@ -58,7 +58,10 @@
                                             </button>
                                         </form>
                                     @endif
-                                    <a href="{{ route('admin.orders.show', $order->id) }}" class="text-blue-600 hover:text-blue-800 font-medium">View Order</a>
+                                    <form action="{{ route('admin.orders.show', $order->id) }}" method="POST" class="inline">
+                                        @csrf
+                                        <button type="submit" class="text-blue-600 hover:text-blue-800 font-medium">View Order</button>
+                                    </form>
                                 </div>
                             </td>
                         </tr>

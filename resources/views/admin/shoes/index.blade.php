@@ -58,7 +58,10 @@
                                 @endif
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <a href="{{ route('admin.shoes.edit', $shoe->id) }}" class="text-blue-600 hover:text-blue-800 mr-3">Edit</a>
+                                <a href="{{ route('admin.shoes.show', $shoe->id) }}" class="action-btn" title="View" target="_blank">
+                                    <i class="far fa-eye"></i>
+                                </a>
+                                <a href="{{ route('admin.shoes.edit', $shoe->id) }}" class="text-blue-600 hover:text-blue-800 mx-2">Edit</a>
                                 <form action="{{ route('admin.shoes.destroy', $shoe->id) }}" method="POST" class="inline">
                                     @csrf
                                     @method('DELETE')

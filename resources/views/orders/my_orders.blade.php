@@ -35,32 +35,30 @@
                     </div>
                     
                     <div class="p-6">
-                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                            @foreach($order->orderItems as $item)
-                                <div class="flex items-center">
-                                    @if($item->shoe->image)
-                                        <img src="{{ asset('shoes/' . $item->shoe->image) }}" alt="{{ $item->shoe->name }}" class="w-20 h-20 object-cover rounded">
-                                    @else
-                                        <div class="w-20 h-20 bg-gray-200 rounded flex items-center justify-center">
-                                            <span class="text-gray-400 text-xs">No Image</span>
-                                        </div>
-                                    @endif
-                                    <div class="ml-4">
-                                        <p class="font-semibold">{{ $item->shoe->name }}</p>
-                                        <p class="text-gray-500 text-sm">Qty: {{ $item->quantity }}</p>
-                                        <p class="text-gray-500 text-sm">${{ number_format($item->price, 2) }}</p>
+                        @foreach($order->orderItems as $item)
+                            <div class="flex items-start mb-4">
+                                @if($item->shoe->image)
+                                    <img src="{{ asset('shoes/' . $item->shoe->image) }}" alt="{{ $item->shoe->name }}" class="w-16 h-16 object-cover rounded">
+                                @else
+                                    <div class="w-16 h-16 bg-gray-200 rounded flex items-center justify-center">
+                                        <span class="text-gray-400 text-xs">No Image</span>
                                     </div>
+                                @endif
+                                <div class="ml-4 flex-1">
+                                    <p class="font-semibold text-gray-800">{{ $item->shoe->name }}</p>
+                                    <p class="text-gray-500 text-sm">Qty: {{ $item->quantity }}</p>
+                                    <p class="text-gray-600 text-sm font-medium">${{ number_format($item->price, 2) }}</p>
                                 </div>
-                            @endforeach
-                        </div>
+                            </div>
+                        @endforeach
                         
                         <div class="mt-4 pt-4 border-t flex justify-between items-center">
-                            <div class="text-gray-500 text-sm">
+                            <div class="text-gray-700 text-sm">
                                 <p><strong>Shipping Address:</strong> {{ $order->address }}</p>
                                 @if($order->status == 'pending')
-                                    <form action="{{ route('my-orders.cancel', $order->id) }}" method="POST" class="mt-2">
+                                    <form action="{{ route('order.cancel', $order->id) }}" method="POST" class="mt-2">
                                         @csrf
-                                        <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded text-sm" onclick="return confirm('Are you sure you want to cancel this order?')">
+                                        <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded text-sm font-medium" onclick="return confirm('Are you sure you want to cancel this order?')">
                                             Cancel Order
                                         </button>
                                     </form>

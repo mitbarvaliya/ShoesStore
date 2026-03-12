@@ -85,27 +85,49 @@
 </div>
 
 <div class="container pb-5">
+    <!-- Search and Filter -->
+    <div class="mb-4">
+        <form action="{{ route('shop') }}" method="GET" class="d-flex flex-wrap gap-3 align-items-center">
+            <div class="flex-grow-1" style="max-width: 400px;">
+                <div class="input-group">
+                    <input type="text" name="search" class="form-control" placeholder="Search shoes..." value="{{ request('search') }}">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <div class="btn-group" role="group">
+                <a href="{{ route('shop', ['search' => request('search')]) }}" class="btn {{ !request('category') ? 'btn-primary' : 'btn-outline-primary' }}">All</a>
+                <a href="{{ route('shop', ['category' => 'Men', 'search' => request('search')]) }}" class="btn {{ request('category') == 'Men' ? 'btn-primary' : 'btn-outline-primary' }}">Men</a>
+                <a href="{{ route('shop', ['category' => 'Women', 'search' => request('search')]) }}" class="btn {{ request('category') == 'Women' ? 'btn-primary' : 'btn-outline-primary' }}">Women</a>
+                <a href="{{ route('shop', ['category' => 'Children', 'search' => request('search')]) }}" class="btn {{ request('category') == 'Children' ? 'btn-primary' : 'btn-outline-primary' }}">Children</a>
+            </div>
+        </form>
+    </div>
+
     @if($shoes->count() > 0)
         <div class="row g-4">
             @foreach($shoes as $shoe)
                 <div class="col-md-6 col-lg-3">
                     <div class="card shoe-card h-100">
-                        <div class="position-relative">
-                            @if($shoe->image)
-                                <img src="{{ asset('shoes/' . $shoe->image) }}" alt="{{ $shoe->name }}" class="card-img-top">
-                            @else
-                                <div class="bg-light d-flex align-items-center justify-content-center" style="height: 220px;">
-                                    <i class="fas fa-shoe-prints text-muted fa-3x"></i>
-                                </div>
-                            @endif
-                            @if($shoe->best_seller)
-                                <span class="position-absolute top-0 end-0 badge badge-seller text-white m-2 px-2 py-1">
-                                    <i class="fas fa-fire me-1"></i>Best Seller
-                                </span>
-                            @endif
-                        </div>
+                        <a href="{{ route('shoe.detail', $shoe->id) }}">
+                            <div class="position-relative">
+                                @if($shoe->image)
+                                    <img src="{{ asset('shoes/' . $shoe->image) }}" alt="{{ $shoe->name }}" class="card-img-top">
+                                @else
+                                    <div class="bg-light d-flex align-items-center justify-content-center" style="height: 220px;">
+                                        <i class="fas fa-shoe-prints text-muted fa-3x"></i>
+                                    </div>
+                                @endif
+                                @if($shoe->best_seller)
+                                    <span class="position-absolute top-0 end-0 badge badge-seller text-white m-2 px-2 py-1">
+                                        <i class="fas fa-fire me-1"></i>Best Seller
+                                    </span>
+                                @endif
+                            </div>
+                        </a>
                         <div class="card-body">
-                            <h5 class="card-title mb-1">{{ $shoe->name }}</h5>
+                            <a href="{{ route('shoe.detail', $shoe->id) }}" class="text-decoration-none">
+                                <h5 class="card-title mb-1 text-dark">{{ $shoe->name }}</h5>
+                            </a>
                             <p class="text-muted small mb-2"><i class="fas fa-tag me-1"></i>{{ $shoe->category }}</p>
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>

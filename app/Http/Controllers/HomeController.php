@@ -15,10 +15,25 @@ class HomeController extends Controller
         return view('welcome', compact('popularShoes', 'shoes'));
     }
 
-    public function shop()
+    public function shop(Request $request)
     {
-        $shoes = Shoe::latest()->paginate(12);
+        $query = Shoe::query();
+
+        if ($request->has('search') && $request->search) {
+            $query->where('name', 'like', '%' . $request->search . '%');
+        }
+
+        if ($request->has('category') && $request->category) {
+            $query->where('category', $request->category);
+        }
+
+        $shoes = $query->latest()->paginate(12);
         return view('shop', compact('shoes'));
+    }
+
+    public function shoeDetail(Shoe $shoe)
+    {
+        return view('shoe-detail', compact('shoe'));
     }
 
     public function contact()
