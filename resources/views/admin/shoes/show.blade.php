@@ -20,7 +20,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
                 @if($shoe->image)
-                    <img src="{{ asset('shoes/' . $shoe->image) }}" alt="{{ $shoe->name }}" class="w-full rounded-lg shadow-lg" style="max-height: 500px; object-fit: cover;">
+                    <img src="{{ $shoe->image_url }}" alt="{{ $shoe->name }}" class="w-full rounded-lg shadow-lg" style="max-height: 500px; object-fit: cover;">
                 @else
                     <div class="bg-gray-100 rounded-lg d-flex align-items-center justify-content-center" style="height: 400px;">
                         <span class="text-gray-400">No Image</span>

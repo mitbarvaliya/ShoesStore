@@ -35,4 +35,17 @@ class Shoe extends Model
     {
         return $this->hasMany(OrderItem::class);
     }
+
+    public function getImageUrlAttribute(): string
+    {
+        if (!$this->image) {
+            return '';
+        }
+        
+        if (filter_var($this->image, FILTER_VALIDATE_URL)) {
+            return $this->image;
+        }
+        
+        return asset('shoes/' . $this->image);
+    }
 }

@@ -28,7 +28,12 @@
 
                 <div>
                     <label for="category" class="block text-gray-700 text-sm font-bold mb-2">Category</label>
-                    <input type="text" name="category" id="category" value="{{ old('category') }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="e.g., Running, Casual, Formal" required>
+                    <select name="category" id="category" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                        <option value="">Select Category</option>
+                        <option value="Men" {{ old('category') == 'Men' ? 'selected' : '' }}>Men</option>
+                        <option value="Women" {{ old('category') == 'Women' ? 'selected' : '' }}>Women</option>
+                        <option value="Children" {{ old('category') == 'Children' ? 'selected' : '' }}>Children</option>
+                    </select>
                 </div>
 
                 <div>

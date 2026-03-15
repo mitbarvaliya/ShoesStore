@@ -75,6 +75,12 @@ return [
             'channel' => env('MAIL_LOG_CHANNEL'),
         ],
 
+        'mailgun' => [
+            'transport' => 'mailgun',
+            'domain' => env('MAILGUN_DOMAIN'),
+            'secret' => env('MAILGUN_SECRET'),
+        ],
+
         'array' => [
             'transport' => 'array',
         ],

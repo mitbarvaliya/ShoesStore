@@ -29,7 +29,12 @@
 
                 <div>
                     <label for="category" class="block text-gray-700 text-sm font-bold mb-2">Category</label>
-                    <input type="text" name="category" id="category" value="{{ old('category', $shoe->category) }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                    <select name="category" id="category" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                        <option value="">Select Category</option>
+                        <option value="Men" {{ old('category', $shoe->category) == 'Men' ? 'selected' : '' }}>Men</option>
+                        <option value="Women" {{ old('category', $shoe->category) == 'Women' ? 'selected' : '' }}>Women</option>
+                        <option value="Children" {{ old('category', $shoe->category) == 'Children' ? 'selected' : '' }}>Children</option>
+                    </select>
                 </div>
 
                 <div>
@@ -47,7 +52,7 @@
                     <input type="file" name="image" id="image" accept="image/jpeg,image/png,image/jpg,image/gif,image/svg,image/webp,image/avif" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     @if ($shoe->image)
                         <div class="mt-2">
-                            <img src="{{ asset('shoes/' . $shoe->image) }}" alt="{{ $shoe->name }}" class="w-24 h-24 object-cover rounded">
+                            <img src="{{ $shoe->image_url }}" alt="{{ $shoe->name }}" class="w-24 h-24 object-cover rounded">
                             <p class="text-sm text-gray-500 mt-1">Current image</p>
                         </div>
                     @endif

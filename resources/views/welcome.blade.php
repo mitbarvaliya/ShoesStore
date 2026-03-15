@@ -717,25 +717,50 @@
 </section>
 
 <!-- Search and Filter Section -->
-<section class="py-4 bg-theme-primary">
+<section class="py-5 bg-theme-primary">
     <div class="container">
-        <form action="{{ route('shop') }}" method="GET" class="d-flex flex-wrap gap-3 align-items-center justify-content-center">
-            <div style="max-width: 350px;">
+        <form action="{{ route('shop') }}" method="GET" class="search-filter d-flex flex-wrap gap-4 align-items-center justify-content-center">
+            
+            <!-- Search Input Group -->
+            <div style="min-width: 280px;">
                 <div class="input-group">
-                    <input type="text" name="search" class="form-control" placeholder="Search shoes..." value="{{ request('search') }}">
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+                    <input type="text" name="search" class="form-control border-end-0" placeholder="Search shoes..." value="{{ request('search') }}">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-search"></i>
+                    </button>
                 </div>
             </div>
-            <div class="btn-group" role="group">
-                <a href="{{ route('shop') }}" class="btn {{ !request('category') ? 'btn-primary' : 'btn-outline-light' }}">All</a>
-                <a href="{{ route('shop', ['category' => 'Men']) }}" class="btn {{ request('category') == 'Men' ? 'btn-primary' : 'btn-outline-light' }}">Men</a>
-                <a href="{{ route('shop', ['category' => 'Women']) }}" class="btn {{ request('category') == 'Women' ? 'btn-primary' : 'btn-outline-light' }}">Women</a>
-                <a href="{{ route('shop', ['category' => 'Children']) }}" class="btn {{ request('category') == 'Children' ? 'btn-primary' : 'btn-outline-light' }}">Children</a>
+
+            <!-- Category Buttons with Gap -->
+            <div class="d-flex flex-wrap gap-2 justify-content-center" role="group">
+                <!-- All Button -->
+                <a href="{{ route('shop') }}" 
+                   class="btn filter-btn {{ !request('category') ? 'active' : '' }}">
+                    All
+                </a>
+
+                <!-- Men Button -->
+                <a href="{{ route('shop', ['category' => 'Men']) }}" 
+                   class="btn filter-btn {{ request('category') == 'Men' ? 'active' : '' }}">
+                    Men
+                </a>
+
+                <!-- Women Button -->
+                <a href="{{ route('shop', ['category' => 'Women']) }}" 
+                   class="btn filter-btn {{ request('category') == 'Women' ? 'active' : '' }}">
+                    Women
+                </a>
+
+                <!-- Children Button -->
+                <a href="{{ route('shop', ['category' => 'Children']) }}" 
+                   class="btn filter-btn {{ request('category') == 'Children' ? 'active' : '' }}">
+                    Children
+                </a>
             </div>
+
         </form>
     </div>
 </section>
-
 <!-- Popular Shoes Section -->
 @if($popularShoes->count() > 0)
 <section class="py-6 bg-theme-primary">
@@ -751,7 +776,7 @@
                         <a href="{{ route('shoe.detail', $shoe->id) }}">
                             <div class="product-image-wrapper">
                                 @if($shoe->image)
-                                    <img src="{{ asset('shoes/' . $shoe->image) }}" alt="{{ $shoe->name }}" class="product-image">
+                                    <img src="{{ $shoe->image_url }}" alt="{{ $shoe->name }}" class="product-image">
                                 @else
                                     <img src="https://via.placeholder.com/400x300?text=No+Image" alt="{{ $shoe->name }}" class="product-image">
                                 @endif
@@ -816,7 +841,7 @@
                             <a href="{{ route('shoe.detail', $shoe->id) }}">
                                 <div class="product-image-wrapper">
                                     @if($shoe->image)
-                                        <img src="{{ asset('shoes/' . $shoe->image) }}" alt="{{ $shoe->name }}" class="product-image">
+                                        <img src="{{ $shoe->image_url }}" alt="{{ $shoe->name }}" class="product-image">
                                     @else
                                         <img src="https://via.placeholder.com/400x300?text=No+Image" alt="{{ $shoe->name }}" class="product-image">
                                     @endif
@@ -1027,6 +1052,7 @@
     });
 
     startAutoPlay();
+
 
     // --- Scroll Reveal Animation ---
     const observerOptions = {

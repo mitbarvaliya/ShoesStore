@@ -37,7 +37,7 @@
                             <td class="px-6 py-4 whitespace-nowrap">{{ $shoe->id }}</td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 @if ($shoe->image)
-                                    <img src="{{ asset('shoes/' . $shoe->image) }}" alt="{{ $shoe->name }}" class="w-16 h-16 object-cover rounded">
+                                    <img src="{{ $shoe->image_url }}" alt="{{ $shoe->name }}" class="w-16 h-16 object-cover rounded">
                                 @else
                                     <span class="text-gray-400">No Image</span>
                                 @endif

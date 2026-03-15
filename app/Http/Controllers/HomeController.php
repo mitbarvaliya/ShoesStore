@@ -17,18 +17,25 @@ class HomeController extends Controller
 
     public function shop(Request $request)
     {
-        $query = Shoe::query();
-
-        if ($request->has('search') && $request->search) {
-            $query->where('name', 'like', '%' . $request->search . '%');
+        $category = $request->category;
+        
+        if ($category) {
+            $shoes = Shoe::where('category', $category)->latest()->paginate(12);
+            $categoryShoes = null;
+        } else {
+            $shoes = Shoe::latest()->paginate(12);
+            $categories = Shoe::whereNotNull('category')
+                ->select('category')
+                ->distinct()
+                ->pluck('category');
+            
+            $categoryShoes = [];
+            foreach ($categories as $cat) {
+                $categoryShoes[$cat] = Shoe::where('category', $cat)->latest()->take(4)->get();
+            }
         }
-
-        if ($request->has('category') && $request->category) {
-            $query->where('category', $request->category);
-        }
-
-        $shoes = $query->latest()->paginate(12);
-        return view('shop', compact('shoes'));
+        
+        return view('shop', compact('shoes', 'categoryShoes', 'category'));
     }
 
     public function shoeDetail(Shoe $shoe)

@@ -66,7 +66,7 @@
     <div class="row g-5">
         <div class="col-lg-6">
             @if($shoe->image)
-                <img src="{{ asset('shoes/' . $shoe->image) }}" alt="{{ $shoe->name }}" class="product-image w-100" style="max-height: 500px; object-fit: cover;">
+                <img src="{{ $shoe->image_url }}" alt="{{ $shoe->name }}" class="product-image w-100" style="max-height: 500px; object-fit: cover;">
             @else
                 <div class="bg-light d-flex align-items-center justify-content-center rounded" style="height: 500px;">
                     <i class="fas fa-shoe-prints text-muted fa-5x"></i>
