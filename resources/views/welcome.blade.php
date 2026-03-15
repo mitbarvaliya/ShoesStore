@@ -18,6 +18,7 @@
         --accent: #e85d04;
         --accent-hover: #f48c06;
         --border-color: #2a2a2a;
+<<<<<<< HEAD
         --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         --body-font: 'Space Grotesk', sans-serif;
         --heading-font: 'Bebas Neue', sans-serif;
@@ -80,6 +81,21 @@
         transform: rotate(180deg);
     }
 
+=======
+    }
+
+    body {
+        font-family: 'Space Grotesk', sans-serif;
+        background-color: var(--bg-primary);
+        color: var(--fg-primary);
+    }
+
+    h1, h2, h3, h4, h5 {
+        font-family: 'Bebas Neue', sans-serif;
+        letter-spacing: 0.05em;
+    }
+
+>>>>>>> 96465be7215ead742d9741597c893f6518e56e2c
     /* --- Hero Slider Styles --- */
     .hero-section {
         position: relative;
@@ -96,7 +112,11 @@
         height: 100%;
         opacity: 0;
         visibility: hidden;
+<<<<<<< HEAD
         transition: opacity 1s ease, visibility 1s ease;
+=======
+        transition: opacity 0.8s ease, visibility 0.8s ease;
+>>>>>>> 96465be7215ead742d9741597c893f6518e56e2c
     }
 
     .slide.active {
@@ -128,11 +148,14 @@
         height: 100%;
         background: linear-gradient(135deg, rgba(13, 13, 13, 0.95) 0%, rgba(13, 13, 13, 0.7) 50%, rgba(13, 13, 13, 0.4) 100%);
     }
+<<<<<<< HEAD
     
     /* Lighter overlay for light mode */
     body.light-mode .slide-overlay {
         background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 50%, rgba(255, 255, 255, 0.4) 100%);
     }
+=======
+>>>>>>> 96465be7215ead742d9741597c893f6518e56e2c
 
     .slide-content {
         position: relative;
@@ -145,7 +168,11 @@
     .slide-tag {
         display: inline-block;
         background: var(--accent);
+<<<<<<< HEAD
         color: #fff;
+=======
+        color: var(--fg-primary);
+>>>>>>> 96465be7215ead742d9741597c893f6518e56e2c
         padding: 0.5rem 1.5rem;
         font-size: 0.85rem;
         font-weight: 600;
@@ -157,7 +184,10 @@
         font-size: clamp(3rem, 8vw, 6rem);
         line-height: 0.95;
         margin-bottom: 1.5rem;
+<<<<<<< HEAD
         color: var(--fg-primary); /* Adapts to theme */
+=======
+>>>>>>> 96465be7215ead742d9741597c893f6518e56e2c
     }
 
     .slide-title span {
@@ -174,19 +204,30 @@
     .btn-primary-custom {
         background: var(--accent);
         border: none;
+<<<<<<< HEAD
         color: #fff;
+=======
+        color: var(--fg-primary);
+>>>>>>> 96465be7215ead742d9741597c893f6518e56e2c
         padding: 1rem 2.5rem;
         font-weight: 600;
         letter-spacing: 0.05em;
         text-transform: uppercase;
         transition: all 0.3s ease;
         text-decoration: none;
+<<<<<<< HEAD
         display: inline-block;
+=======
+>>>>>>> 96465be7215ead742d9741597c893f6518e56e2c
     }
 
     .btn-primary-custom:hover {
         background: var(--accent-hover);
+<<<<<<< HEAD
         color: #fff;
+=======
+        color: var(--fg-primary);
+>>>>>>> 96465be7215ead742d9741597c893f6518e56e2c
         transform: translateY(-3px);
         box-shadow: 0 10px 30px rgba(232, 93, 4, 0.3);
     }
@@ -217,12 +258,16 @@
     .slider-arrow:hover {
         background: var(--accent);
         border-color: var(--accent);
+<<<<<<< HEAD
         color: #fff;
+=======
+>>>>>>> 96465be7215ead742d9741597c893f6518e56e2c
     }
 
     .slider-dots {
         position: absolute;
         bottom: 50px;
+<<<<<<< HEAD
         left: 50%;
         transform: translateX(-50%);
         display: flex;
@@ -460,6 +505,213 @@
         background: var(--bg-card);
         border: 1px solid var(--border-color);
         padding: 2.5rem 2rem;
+=======
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 1rem;
+        z-index: 20;
+    }
+
+    .slider-dot {
+        width: 40px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.3);
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    .slider-dot.active {
+        background: var(--accent);
+    }
+
+    /* --- Product Card Styles --- */
+    .product-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        overflow: hidden;
+        transition: all 0.4s ease;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--accent);
+        box-shadow: 0 20px 50px rgba(232, 93, 4, 0.1);
+    }
+
+    .product-image-wrapper {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+        height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+    }
+
+    .product-image {
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+        transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.3));
+    }
+
+    /* The requested hover effect */
+    .product-card:hover .product-image {
+        transform: scale(1.15) rotate(-5deg);
+    }
+
+    .product-badges {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .badge-new {
+        background: var(--accent);
+        color: var(--fg-primary);
+        padding: 0.35rem 1rem;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+    }
+
+    .badge-sale {
+        background: #dc2626;
+        color: var(--fg-primary);
+        padding: 0.35rem 1rem;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+    }
+
+    .product-actions {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        opacity: 0;
+        transform: translateX(20px);
+        transition: all 0.4s ease;
+    }
+
+    .product-card:hover .product-actions {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .action-btn {
+        width: 40px;
+        height: 40px;
+        background: var(--bg-primary);
+        border: none;
+        color: var(--fg-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .action-btn:hover {
+        background: var(--accent);
+    }
+
+    .product-info {
+        padding: 1.5rem;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product-category {
+        color: var(--accent);
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+    }
+
+    .product-title {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+        transition: color 0.3s ease;
+    }
+
+    .product-card:hover .product-title {
+        color: var(--accent);
+    }
+
+    .product-price {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-top: auto;
+        padding-top: 1rem;
+    }
+
+    .current-price {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 1.5rem;
+        color: var(--accent);
+    }
+
+    .original-price {
+        font-size: 0.9rem;
+        color: var(--fg-secondary);
+        text-decoration: line-through;
+    }
+
+    .btn-add-cart {
+        width: 100%;
+        background: transparent;
+        border: 1px solid var(--border-color);
+        color: var(--fg-primary);
+        padding: 0.75rem;
+        margin-top: 1rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .btn-add-cart:hover {
+        background: var(--accent);
+        border-color: var(--accent);
+    }
+
+    /* --- Sections --- */
+    .section-header {
+        margin-bottom: 4rem;
+        text-align: center;
+    }
+
+    .section-subtitle {
+        color: var(--accent);
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+
+    .section-title {
+        font-size: 3rem;
+        margin-bottom: 0;
+    }
+
+    .feature-box {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        padding: 2rem;
+>>>>>>> 96465be7215ead742d9741597c893f6518e56e2c
         text-align: center;
         transition: all 0.3s ease;
     }
@@ -470,13 +722,19 @@
     }
 
     .feature-icon {
+<<<<<<< HEAD
         width: 70px;
         height: 70px;
+=======
+        width: 60px;
+        height: 60px;
+>>>>>>> 96465be7215ead742d9741597c893f6518e56e2c
         background: rgba(232, 93, 4, 0.1);
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
+<<<<<<< HEAD
         margin: 0 auto 1.5rem;
         transition: all 0.3s;
     }
@@ -487,10 +745,14 @@
     
     .feature-box:hover .feature-icon i {
         color: #fff;
+=======
+        margin: 0 auto 1rem;
+>>>>>>> 96465be7215ead742d9741597c893f6518e56e2c
     }
 
     .feature-icon i {
         color: var(--accent);
+<<<<<<< HEAD
         font-size: 1.75rem;
         transition: color 0.3s;
     }
@@ -609,6 +871,31 @@
         .slider-arrow { width: 40px; height: 40px; }
         .theme-toggle-btn { top: 15px; right: 15px; width: 40px; height: 40px; }
         .footer { text-align: center; }
+=======
+        font-size: 1.5rem;
+    }
+
+    /* Reveal Animation */
+    .reveal {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s ease;
+    }
+    .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .hero-section {
+            height: 70vh;
+            min-height: 500px;
+        }
+        .slide-title {
+            font-size: 2.5rem;
+        }
+>>>>>>> 96465be7215ead742d9741597c893f6518e56e2c
     }
 </style>
 @endsection
@@ -630,11 +917,19 @@
             <div class="slide-overlay"></div>
             <div class="slide-content">
                 <div class="container">
+<<<<<<< HEAD
                     <span class="slide-tag">NEW COLLECTION 2024</span>
                     <h1 class="slide-title">STEP INTO <span>FUTURE</span></h1>
                     <p class="slide-desc">Discover the perfect pair for every occasion. Premium quality shoes designed for the modern lifestyle.</p>
                     <a href="#all-shoes" class="btn btn-primary-custom">
                         <i class="fas fa-shopping-bag me-2"></i>Shop Collection
+=======
+                    <span class="slide-tag">NEW COLLECTION</span>
+                    <h1 class="slide-title">STEP INTO <span>STYLE</span></h1>
+                    <p class="slide-desc">Discover the perfect pair for every occasion. Premium quality shoes at unbeatable prices.</p>
+                    <a href="#all-shoes" class="btn btn-primary-custom">
+                        <i class="fas fa-shopping-bag me-2"></i>Shop Now
+>>>>>>> 96465be7215ead742d9741597c893f6518e56e2c
                     </a>
                 </div>
             </div>
@@ -646,9 +941,15 @@
             <div class="slide-overlay"></div>
             <div class="slide-content">
                 <div class="container">
+<<<<<<< HEAD
                     <span class="slide-tag">LIMITED EDITION</span>
                     <h1 class="slide-title">URBAN <span>LEGEND</span></h1>
                     <p class="slide-desc">Explore our latest collection of trendy and comfortable footwear crafted with precision.</p>
+=======
+                    <span class="slide-tag">LATEST TRENDS</span>
+                    <h1 class="slide-title">URBAN <span>COLLECTION</span></h1>
+                    <p class="slide-desc">Explore our latest collection of trendy and comfortable footwear.</p>
+>>>>>>> 96465be7215ead742d9741597c893f6518e56e2c
                     <a href="#all-shoes" class="btn btn-primary-custom">
                         <i class="fas fa-arrow-right me-2"></i>Explore Now
                     </a>
@@ -662,9 +963,15 @@
             <div class="slide-overlay"></div>
             <div class="slide-content">
                 <div class="container">
+<<<<<<< HEAD
                     <span class="slide-tag">MEGA SALE</span>
                     <h1 class="slide-title">SUMMER <span>SALE</span></h1>
                     <p class="slide-desc">Get up to 50% off on selected items. Limited time offer while stocks last!</p>
+=======
+                    <span class="slide-tag">LIMITED OFFER</span>
+                    <h1 class="slide-title">SUMMER <span>SALE</span></h1>
+                    <p class="slide-desc">Get up to 50% off on selected items. Limited time offer!</p>
+>>>>>>> 96465be7215ead742d9741597c893f6518e56e2c
                     <a href="#all-shoes" class="btn btn-primary-custom">
                         <i class="fas fa-tag me-2"></i>Shop Sale
                     </a>
@@ -688,6 +995,7 @@
 </section>
 
 <!-- Features Section -->
+<<<<<<< HEAD
 <section class="py-5 bg-theme-secondary">
     <div class="container">
         <div class="row g-4">
@@ -710,6 +1018,30 @@
                     <div class="feature-icon"><i class="fas fa-headset"></i></div>
                     <h5 class="text-theme-primary">24/7 Support</h5>
                     <p class="text-theme-secondary mb-0">Dedicated customer care team ready to assist you anytime.</p>
+=======
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4 reveal">
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fas fa-shipping-fast"></i></div>
+                    <h5>Free Shipping</h5>
+                    <p class="text-muted mb-0">On orders over $100</p>
+                </div>
+            </div>
+            <div class="col-md-4 reveal">
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fas fa-undo"></i></div>
+                    <h5>Easy Returns</h5>
+                    <p class="text-muted mb-0">30-day return policy</p>
+                </div>
+            </div>
+            <div class="col-md-4 reveal">
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fas fa-headset"></i></div>
+                    <h5>24/7 Support</h5>
+                    <p class="text-muted mb-0">Dedicated customer care</p>
+>>>>>>> 96465be7215ead742d9741597c893f6518e56e2c
                 </div>
             </div>
         </div>
@@ -770,6 +1102,7 @@
             <h2 class="section-title">Popular Shoes</h2>
         </div>
         <div class="row g-4">
+<<<<<<< HEAD
             @foreach($popularShoes as $index => $shoe)
                 <div class="col-6 col-lg-3 reveal delay-{{ $index % 4 + 1 }}">
                     <article class="product-card">
@@ -797,6 +1130,31 @@
                             <h3 class="product-title">
                                 <a href="{{ route('shoe.detail', $shoe->id) }}" class="text-decoration-none text-theme-primary">{{ $shoe->name }}</a>
                             </h3>
+=======
+            @foreach($popularShoes as $shoe)
+                <div class="col-md-6 col-lg-3 reveal">
+                    <article class="product-card">
+                        <div class="product-image-wrapper">
+                            @if($shoe->image)
+                                <img src="{{ asset('shoes/' . $shoe->image) }}" alt="{{ $shoe->name }}" class="product-image">
+                            @else
+                                <img src="https://via.placeholder.com/400x300?text=No+Image" alt="{{ $shoe->name }}" class="product-image">
+                            @endif
+                            
+                            <div class="product-badges">
+                                <span class="badge-new"><i class="fas fa-fire me-1"></i>HOT</span>
+                            </div>
+
+                            <div class="product-actions">
+                                <button class="action-btn"><i class="far fa-heart"></i></button>
+                                <button class="action-btn"><i class="far fa-eye"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="product-info">
+                            <span class="product-category">{{ $shoe->category }}</span>
+                            <h3 class="product-title">{{ $shoe->name }}</h3>
+>>>>>>> 96465be7215ead742d9741597c893f6518e56e2c
                             <div class="product-price">
                                 <span class="current-price">${{ number_format($shoe->price, 2) }}</span>
                                 @if($shoe->deleted_price)
@@ -826,7 +1184,11 @@
 @endif
 
 <!-- All Shoes Section -->
+<<<<<<< HEAD
 <section id="all-shoes" class="py-6 bg-theme-secondary">
+=======
+<section id="all-shoes" class="py-5" style="background: var(--bg-secondary);">
+>>>>>>> 96465be7215ead742d9741597c893f6518e56e2c
     <div class="container">
         <div class="section-header reveal">
             <span class="section-subtitle">OUR PRODUCTS</span>
@@ -835,6 +1197,7 @@
         
         @if($shoes->count() > 0)
             <div class="row g-4">
+<<<<<<< HEAD
                 @foreach($shoes as $index => $shoe)
                     <div class="col-6 col-lg-3 reveal delay-{{ $index % 4 + 1 }}">
                         <article class="product-card">
@@ -867,6 +1230,36 @@
                                 <h3 class="product-title">
                                     <a href="{{ route('shoe.detail', $shoe->id) }}" class="text-decoration-none text-theme-primary">{{ $shoe->name }}</a>
                                 </h3>
+=======
+                @foreach($shoes as $shoe)
+                    <div class="col-md-6 col-lg-3 reveal">
+                        <article class="product-card">
+                            <div class="product-image-wrapper">
+                                @if($shoe->image)
+                                    <img src="{{ asset('shoes/' . $shoe->image) }}" alt="{{ $shoe->name }}" class="product-image">
+                                @else
+                                    <img src="https://via.placeholder.com/400x300?text=No+Image" alt="{{ $shoe->name }}" class="product-image">
+                                @endif
+                                
+                                <div class="product-badges">
+                                    @if($shoe->best_seller)
+                                        <span class="badge-new"><i class="fas fa-fire me-1"></i>BEST</span>
+                                    @endif
+                                    @if($shoe->deleted_price)
+                                        <span class="badge-sale">SALE</span>
+                                    @endif
+                                </div>
+
+                                <div class="product-actions">
+                                    <button class="action-btn"><i class="far fa-heart"></i></button>
+                                    <button class="action-btn"><i class="far fa-eye"></i></button>
+                                </div>
+                            </div>
+                            
+                            <div class="product-info">
+                                <span class="product-category">{{ $shoe->category }}</span>
+                                <h3 class="product-title">{{ $shoe->name }}</h3>
+>>>>>>> 96465be7215ead742d9741597c893f6518e56e2c
                                 <div class="product-price">
                                     <span class="current-price">${{ number_format($shoe->price, 2) }}</span>
                                     @if($shoe->deleted_price)
@@ -893,8 +1286,13 @@
             </div>
         @else
             <div class="text-center py-5">
+<<<<<<< HEAD
                 <i class="fas fa-shoe-prints fa-3x text-theme-secondary mb-3"></i>
                 <p class="text-theme-secondary fs-5">No shoes available yet.</p>
+=======
+                <i class="fas fa-shoe-prints fa-3x text-muted mb-3"></i>
+                <p class="text-muted fs-5">No shoes available yet.</p>
+>>>>>>> 96465be7215ead742d9741597c893f6518e56e2c
             </div>
         @endif
     </div>
@@ -972,6 +1370,7 @@
 
 @section('scripts')
 <script>
+<<<<<<< HEAD
     // --- Theme Toggle Logic ---
     const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
@@ -1010,6 +1409,19 @@
         slides.forEach(slide => slide.classList.remove('active'));
         dots.forEach(dot => dot.classList.remove('active'));
         
+=======
+    // --- Slider Logic ---
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.slider-dot');
+    const totalSlides = slides.length;
+    let slideInterval;
+
+    function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        
+>>>>>>> 96465be7215ead742d9741597c893f6518e56e2c
         currentSlide = (index + totalSlides) % totalSlides;
         slides[currentSlide].classList.add('active');
         dots[currentSlide].classList.add('active');
@@ -1023,6 +1435,10 @@
         showSlide(currentSlide - 1);
     }
 
+<<<<<<< HEAD
+=======
+    // Auto-play
+>>>>>>> 96465be7215ead742d9741597c893f6518e56e2c
     function startAutoPlay() {
         slideInterval = setInterval(nextSlide, 5000);
     }
@@ -1031,6 +1447,10 @@
         clearInterval(slideInterval);
     }
 
+<<<<<<< HEAD
+=======
+    // Event Listeners
+>>>>>>> 96465be7215ead742d9741597c893f6518e56e2c
     document.getElementById('nextSlide').addEventListener('click', () => {
         stopAutoPlay();
         nextSlide();
@@ -1053,7 +1473,10 @@
 
     startAutoPlay();
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 96465be7215ead742d9741597c893f6518e56e2c
     // --- Scroll Reveal Animation ---
     const observerOptions = {
         threshold: 0.1,
@@ -1071,6 +1494,7 @@
     document.querySelectorAll('.reveal').forEach(el => {
         observer.observe(el);
     });
+<<<<<<< HEAD
 
     // --- Scroll to Top Logic ---
     const scrollTopBtn = document.getElementById('scrollTop');
@@ -1089,5 +1513,7 @@
             behavior: 'smooth'
         });
     });
+=======
+>>>>>>> 96465be7215ead742d9741597c893f6518e56e2c
 </script>
 @endsection
