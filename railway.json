@@ -1,0 +1,13 @@
+{
+  "$schema": "https://railway.app/schema.json",
+  "build": {
+    "builder": "LARAVEL",
+    "buildCommand": "composer install --no-ansi --no-interaction --optimize-autoloader",
+    "startCommand": "heroku-php-nginx -C nginx.conf public/"
+  },
+  "deploy": {
+    "numReplicas": 1,
+    "sleep": false
+  },
+  "plugins": ["postgres"]
+}
